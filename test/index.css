@@ -39,7 +39,7 @@ html, body {
 
 .drum {
     width: 50%;
-    height: 50%;
+    height: 25%;
     box-sizing: border-box;
     float: left;
     position: relative;
@@ -67,6 +67,6 @@ html, body {
 }
 
 .button {
-  padding: 10px;
+  height: 40px;
   margin: 10px;
 }

@@ -91,10 +91,17 @@ var app = {
                                         function(msg){ console.error( 'Error: ' + msg ); });
     },
 
+    loop: function(asset) {
+        window.plugins.NativeAudio.loop(asset, 
+                                        function(msg){console.info(msg);},
+                                        function(msg){ console.error( 'Error: ' + msg ); });
+    },
+
     play: function(asset) {
-        document.getElementById(asset).classList.add('touched');
+        var drum = document.getElementById(asset);
+        if(drum) { drum.classList.add('touched') };
         window.plugins.NativeAudio.play(asset, 
-                                        function(msg){console.info(msg); document.getElementById(asset).classList.remove('touched');},
+                                        function(msg){console.info(msg); if(drum) { drum.classList.remove('touched') };},
                                         function(msg){ console.error( 'Error: ' + msg ); });
     }
 
