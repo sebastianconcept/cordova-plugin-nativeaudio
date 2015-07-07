@@ -41,7 +41,7 @@ var app = {
 
         if( window.plugins && window.plugins.NativeAudio ) {
 
-            var items = ['bass', 'snare', 'highhat', 'bongo'];
+            var items = ['snare', 'highhat', 'bongo'];
             for(var i=0; i<items.length; i++) {
                 var asset = 'assets/' + items[i] + '.mp3';
                 window.plugins.NativeAudio.preloadSimple(items[i], 
@@ -49,6 +49,13 @@ var app = {
                                                          function(msg){console.info(msg)}, 
                                                          function(msg){ console.error( 'Error: ' + msg ); });
             }
+
+            window.plugins.NativeAudio.preloadComplex('bass',
+                                                'assets/bass.mp3',
+                                                1, // volume
+                                                1, // voices
+                                                0, // delay
+                                                function(msg) {console.info('preloaded bass: '+msg);} );            
 
             window.plugins.NativeAudio.preloadComplex('noise', 
                                                       'assets/ambient.mp3', 
@@ -68,10 +75,26 @@ var app = {
 
     },
 
-    play: function(drum) {
-        document.getElementById(drum).classList.add('touched');
-        window.plugins.NativeAudio.play(drum, 
-                                        function(msg){console.info(msg), document.getElementById(drum).classList.remove('touched');},
+    touchEnd: function (event) {
+      console.log('touchEnd');
+    },
+
+    stop: function(asset) {
+        window.plugins.NativeAudio.stop(asset, 
+                                        function(msg){console.info(msg);},
+                                        function(msg){ console.error( 'Error: ' + msg ); });
+    },
+
+    pause: function(asset) {
+        window.plugins.NativeAudio.pause(asset, 
+                                        function(msg){console.info(msg);},
+                                        function(msg){ console.error( 'Error: ' + msg ); });
+    },
+
+    play: function(asset) {
+        document.getElementById(asset).classList.add('touched');
+        window.plugins.NativeAudio.play(asset, 
+                                        function(msg){console.info(msg); document.getElementById(asset).classList.remove('touched');},
                                         function(msg){ console.error( 'Error: ' + msg ); });
     }
 
