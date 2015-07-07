@@ -30,15 +30,15 @@
     <body>
 
     <div style="margin-top: 20px;">
-      <button class="button" id="pause" ontouchstart="app.pause('bass');" ontouchend="app.touchEnd(event);"><span>Pause bass</span></button>
-      <button class="button" id="pause" ontouchstart="app.stop('bass');" ontouchend="app.touchEnd(event);"><span>Stop bass</span></button>
-      <button class="button" id="play" ontouchstart="app.loop('bass');" ontouchend="app.touchEnd(event);"><span>Loop bass</span></button>
+      <button class="controlButton" ontouchstart="app.pause('bass');" ontouchend="app.touchEnd(event);"><span>Pause bass</span></button>
+      <button class="controlButton" ontouchstart="app.stop('bass');" ontouchend="app.touchEnd(event);"><span>Stop bass</span></button>
+      <button class="controlButton" ontouchstart="app.loop('bass');" ontouchend="app.touchEnd(event);"><span>Loop bass</span></button>
     </div>
 
     <div>
-      <button class="button" id="pause" ontouchstart="app.pause('noise');" ontouchend="app.touchEnd(event);"><span>Pause noise</span></button>
-      <button class="button" id="pause" ontouchstart="app.stop('noise');" ontouchend="app.touchEnd(event);"><span>Stop noise</span></button>
-      <button class="button" id="play" ontouchstart="app.loop('noise');" ontouchend="app.touchEnd(event);"><span>Loop noise</span></button>
+      <button class="controlButton" ontouchstart="app.pause('noise');" ontouchend="app.touchEnd(event);"><span>Pause noise</span></button>
+      <button class="controlButton" ontouchstart="app.stop('noise');" ontouchend="app.touchEnd(event);"><span>Stop noise</span></button>
+      <button class="controlButton" ontouchstart="app.loop('noise');" ontouchend="app.touchEnd(event);"><span>Loop noise</span></button>
     </div>
 
 		<div class="drum" id="bass" ontouchstart="app.play('bass');" ontouchend="app.touchEnd(event);"><span>Bass</span></div>
