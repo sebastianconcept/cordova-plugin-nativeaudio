@@ -53,7 +53,7 @@ var app = {
             window.plugins.NativeAudio.preloadComplex('bass',
                                                 'assets/bass.mp3',
                                                 1, // volume
-                                                1, // voices
+                                                2, // voices
                                                 0, // delay
                                                 function(msg) {console.info('preloaded bass: '+msg);} );            
 

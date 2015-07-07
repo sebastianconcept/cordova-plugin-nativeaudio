@@ -67,6 +67,6 @@ html, body {
 }
 
 button.controlButton {
-  padding: 10px;
+  height: 20px;
   margin: 10px;
 }
