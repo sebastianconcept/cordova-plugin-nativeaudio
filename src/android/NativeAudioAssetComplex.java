@@ -53,7 +53,10 @@ public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletion
 	
 	private void invokePlay( Boolean loop )
 	{
+        Log.d( LOGTAG, "invokePlay looping? "+ Boolean.valueOf(loop).toString() );
+        Log.d( LOGTAG, "state: "+ Integer.valueOf(state).toString() );
 		Boolean playing = ( mp.isLooping() || mp.isPlaying() );
+        Log.d( LOGTAG, "playing (isLooping or isPlaying): "+ Integer.valueOf(playing).toString() );
 		if ( playing )
 		{
 			mp.pause();
@@ -98,12 +101,12 @@ public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletion
 
     public void stop()
 	{
+        Log.d( LOGTAG, "stop looping?: "+ Boolean.valueOf(mp.isLooping()).toString() );
+        Log.d( LOGTAG, "state: "+ Integer.valueOf(state).toString() );
 		try
 		{
 			if ( mp.isLooping() || mp.isPlaying() )
 			{
-        Log.d( LOGTAG, "stop while looping: "+ Boolean.valueOf(mp.isLooping()).toString() );
-        Log.d( LOGTAG, "state: "+ Integer.valueOf(state).toString() );
 				state = INVALID;
 				mp.pause();
 				mp.seekTo(0);
