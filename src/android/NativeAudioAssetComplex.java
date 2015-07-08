@@ -103,7 +103,8 @@ public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletion
 			if ( mp.isLooping() || mp.isPlaying() )
 			{
         Log.d( LOGTAG, "stop while looping: "+ Boolean.valueOf(mp.isLooping()).toString() );
-				// state = INVALID;
+        Log.d( LOGTAG, "state: "+ Integer.valueOf(state).toString() );
+				state = INVALID;
 				mp.pause();
 				mp.seekTo(0);
 	           	}
