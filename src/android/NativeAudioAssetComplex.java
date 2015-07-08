@@ -139,7 +139,7 @@ public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletion
 	
 	public void onPrepared(MediaPlayer mPlayer) 
 	{
-    Log.d( LOGTAG, "onPrepared: "+ state.toString() );
+    Log.d( LOGTAG, "onPrepared: "+ String(state) );
 
 		if (state == PENDING_PLAY) 
 		{
