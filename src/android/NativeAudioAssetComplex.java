@@ -16,7 +16,11 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
 
+import android.util.Log;
+
 public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletionListener {
+
+  private static final String LOGTAG = "NativeAudio";
 
 	private static final int INVALID = 0;
 	private static final int PREPARED = 1;
@@ -98,7 +102,8 @@ public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletion
 		{
 			if ( mp.isLooping() || mp.isPlaying() )
 			{
-				state = INVALID;
+        Log.d( LOGTAG, "stop while looping: "+ mp.isLooping().toString() );
+				// state = INVALID;
 				mp.pause();
 				mp.seekTo(0);
 	           	}
@@ -134,6 +139,8 @@ public class NativeAudioAssetComplex implements OnPreparedListener, OnCompletion
 	
 	public void onPrepared(MediaPlayer mPlayer) 
 	{
+    Log.d( LOGTAG, "onPrepared: "+ state.toString() );
+
 		if (state == PENDING_PLAY) 
 		{
 			mp.setLooping(false);
